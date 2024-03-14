@@ -1,4 +1,3 @@
-'use client'
 import React, {Component} from "react";
 import Canvas from './js/ParticleCanvas'
 
