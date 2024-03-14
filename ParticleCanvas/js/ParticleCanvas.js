@@ -153,7 +153,6 @@ export default class Canvas {
   // 根据label更换显示图片
   changeImgByLabel = (label) => {
     if (this.first_load === true) {
-      // 不加延时首次加载不显示（我也不道为什么^_^）
       setTimeout(() => {
         this.changeImg(this.img_list.find(obj => obj.label === label))
       },1000)
@@ -208,14 +207,13 @@ export default class Canvas {
       );
     }
   }
-  // 绘制画布（这个绘制会一直回调，也许可以通过某种方法在必要时截断）
+  // 绘制画布
   drawCanvas() {
     this.context.clearRect(0, 0, this.width, this.height);
     this.ParticleArr.forEach((particle) => {
       particle.update(this.mouseX, this.mouseY);
       particle.draw();
     });
-
     this.animationFrameId = window.requestAnimationFrame(() => this.drawCanvas());
   }
 
